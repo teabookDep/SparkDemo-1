@@ -4,7 +4,7 @@ import org.apache.spark.{SparkContext, SparkConf}
   * aggregateByKey算子演示
   * 会根据key进行聚合
   * 会根据定义的seq函数比较应该返回的值并对所有返回的值进行comb操作
-  * 该算子需要注意本地执行和服务器执行会有不同，保险起见本地执行设置为*
+  * 该算子在分区数为1时会不调用comb函数，结果可能与预期不同，保险起见本地执行设置为*
   */
 object AggregateOperator {
 
