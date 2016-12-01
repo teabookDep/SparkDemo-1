@@ -11,8 +11,9 @@ import scala.Tuple2;
 /**
  * aggregateByKey算子演示
  * 会根据key进行聚合
- * 会根据定义的第一个匿名函数比较应该返回的值并对所有返回的值进行第二个匿名函数的操作
- * 该算子在分区数为1时会不调用第二个匿名函数，结果可能与预期不同，保险起见本地执行设置为*
+ * 会根据定义的第一个匿名函数对每个分区的数据进行处理
+ * 会根据所有分区的返回值进行第二个匿名函数的操作
+ * 该算子在分区数为1时不会调用第二个匿名函数
  */
 public class AggregateByKeyOperator {
 	public static void main(String[] args) {
